@@ -114,16 +114,14 @@ function compilationErrors(filePath, documentText): Diagnostic[] {
 
     try {
         contracts.addContractAndResolveImports(filePath, documentText);
-
         let input = {
             language: 'Solidity',
-            optimizer: {
-                enabled: true,
-            },
             settings: {
-                outputSelection: ['metadata'],
-                remappings: soliditySettings.compilerRemappings.map(mapping =>
-                    `${mapping.prefix}=${path.resolve(mapping.target).replace(/\\/g, '\/')}`),
+		outputSelection: { "*": { "*": [ "metadata" ] } },
+		optimizer: {
+			enabled: true,
+		},
+                remappings: soliditySettings.compilerRemappings.map(mapping => `${mapping.prefix}=${path.resolve(mapping.target).replace(/\\/g, '\/')}`),
             },
             sources: contracts.getContractsForCompilation(),
         };

@@ -48,7 +48,7 @@
     "fs-extra": "^4.0.2",
     "moment": "^2.18.1",
     "read-yaml": "^1.1.0",
-    "solc": "^0.4.17",
+    "solc": "^0.4.21",
     "solium": "^0.5.5",
     "vscode-languageclient": "^3.4.5",
     "vscode-languageserver": "^3.4.3",
